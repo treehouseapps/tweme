@@ -23,9 +23,9 @@ server.use("/", route);
 server.use('/', require('./routes/modify'))
 server.use('/', require('./routes/routes'))
 
-const DB_STRING = 'mongodb://localhost:27017/app'
+const DB_STRING = 'mongodb+srv://Beki:78122775Beki@cluster0.6ypmi.mongodb.net/app'
 const PORT = '3000'
-connectDatabase('mongodb://localhost:27017/app')
+connectDatabase(DB_STRING')
     .then(() => {
         server.listen(PORT, console.log(`server started ${PORT}`));
     })
