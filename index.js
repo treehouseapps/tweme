@@ -15,6 +15,7 @@ server.use(
         secret: "secretKey",
         cookie: { maxAge: 200000 },
         resave: false,
+        saveUninitialized: false,
     })
 )
 server.use("/", route);
