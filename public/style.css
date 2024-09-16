@@ -1,0 +1,357 @@
+.container-fluid {
+    padding-top: 0;
+}
+
+.navbar-brand {
+    font-size: 30px;
+    color: darkorange;
+    letter-spacing: 2px;
+    font-weight: bolder;
+    font-family: cursive;
+}
+
+.container .bi-emoji-smile {
+    font-size: 70px;
+    color: black;
+    padding-right: 15px;
+}
+
+.navbar {
+    background-color: #333;
+    padding: 0px;
+    box-shadow: 2px 2px 10px 2px #333;
+}
+
+.collapse {
+    justify-content: space-evenly;
+}
+
+.navbar-nav .nav-link {
+    color: rgb(255, 187, 0);
+    font-weight: bolder;
+    font-size: 22px;
+}
+
+.container .row {
+    display: grid;
+    place-items: center;
+    margin-top: 2%;
+}
+
+.container .row h3 {
+    background-color: rgba(135, 206, 250, 0.479);
+    width: 70%;
+    font-family: serif;
+    font-weight: bolder;
+    padding: 5px;
+    border-radius: 20px;
+}
+
+.card {
+    display: grid;
+    place-items: center;
+}
+
+.card-body {
+    width: 90%;
+}
+
+.card-body button span {
+    background-color: black;
+}
+
+.col-md-4 img {
+    height: 50vh;
+    width: max-content;
+
+}
+
+.session a {
+    margin-bottom: 5%;
+    font-size: 35px;
+    color: darkorange;
+    letter-spacing: 2px;
+    font-weight: bolder;
+    font-family: cursive;
+    text-decoration: none;
+}
+
+/* gener */
+.container .start h3 {
+    color: #333;
+    font-size: 35px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: 2% 5%;
+}
+
+.list {
+    margin: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.item {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 90%;
+    margin: 10px;
+    border: 3px solid orange;
+}
+
+.item li {
+    margin: 0px 10px;
+    list-style: none;
+}
+
+.item li a {
+    font-size: 30px;
+    color: orange;
+    font-weight: bolder;
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+
+.container .p {
+    margin: 3%;
+    border: 2px solid violet;
+    padding: 20px;
+    border-radius: 1px 20px;
+    font-size: 20px;
+    text-indent: 10%;
+}
+
+/* Post */
+
+.post {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 10px;
+    margin: 10px;
+}
+
+.post .file {
+    border: 1px solid dar;
+    box-shadow: 2px 2px 10px 2px #333;
+    border-radius: 10px;
+    background: transparent;
+    padding: 10px;
+    margin: 2% 10%;
+    height: max-content;
+    width: 80%;
+}
+
+.post .file img {
+    width: 100%;
+}
+
+.file .box {
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0;
+    padding: 10px;
+    border: none;
+}
+
+.box i {
+    font-size: 30px;
+    color: black;
+}
+
+.file .box img {
+    width: 30px;
+    height: 30px;
+}
+
+.file .box div {
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    font-size: small;
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.file h4 {
+    padding: 10%;
+    letter-spacing: 1px;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.deletebtn a {
+    color: red;
+    text-decoration: none;
+}
+
+.underpost {
+    margin: 3%;
+    border: 2px solid violet;
+    padding: 20px;
+    border-radius: 1px 20px;
+    font-size: 20px;
+    text-indent: 10%;
+}
+
+/* footer */
+footer {
+    background-color: #2d5d7b;
+    color: white;
+}
+
+.ftext {
+    background-color: #040f16;
+    height: 18rem;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    color: white;
+}
+
+.ftext div {
+    margin-top: 50px;
+    margin-left: 40px;
+}
+
+.ftext .fone {
+    display: inline-flex;
+    margin-left: 100px;
+}
+
+.fone img {
+    border-radius: 50%;
+    border: 1px solid white;
+}
+
+.fone h2 {
+    margin: 20px;
+    font-size: 30px;
+    border: 1px solid darkorange;
+    height: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: cursive;
+    letter-spacing: 1px;
+}
+
+.ftext .ftwo {
+    display: inline-block;
+    font-size: larger;
+    word-spacing: 10px;
+}
+
+.fthree p {
+    margin-top: 40px;
+    margin-left: 5px;
+    margin-right: 40px;
+    word-spacing: 5px;
+    text-indent: 15px;
+}
+
+footer .copy {
+    padding: 20px;
+    font-size: large;
+}
+
+@media (max-width: 700px) {
+    .container .bi-emoji-smile {
+        font-size: 30px;
+    }
+
+    .container .navbar-brand {
+        font-size: 20px;
+        margin: 0px;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 15px;
+    }
+
+    /*gener*/
+
+    .container .start h3 {
+        font-size: 25px;
+    }
+
+    .list {
+        grid-template-columns: 1fr;
+    }
+
+    .item li a {
+        font-size: 25px;
+    }
+
+    .container .p {
+        font-size: 15px;
+    }
+
+    /* post */
+
+    .container .file {
+        margin: 0% 2%;
+        margin-bottom: 5%;
+        width: 90%;
+    }
+
+    .file .box {
+        padding: 0px;
+    }
+
+    .file h4 {
+        font-size: 17px;
+    }
+
+    /* footer */
+    footer {
+        background-color: #2e2e2e;
+        color: white;
+    }
+
+    .ftext {
+        background-color: #2e2e2e;
+        height: 18rem;
+        margin-top: 20px;
+        display: inline-block;
+        color: white;
+    }
+
+    .ftext div {
+        margin-top: 5px;
+        margin-left: 40px;
+    }
+
+    .ftext .fone {
+        display: inline-flex;
+        margin-left: 10px;
+    }
+
+    .fone img {
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+    }
+
+    .fone h2 {
+        margin: 10px;
+        font-size: 30px;
+    }
+
+    .ftext .ftwo {
+        font-size: medium;
+        word-spacing: 0px;
+    }
+
+    .fthree p {
+        margin-top: 20px;
+    }
+
+    .fthree h2 {
+        margin-top: 20px;
+    }
+
+    footer .copy {
+        padding: 20px;
+        font-size: medium;
+    }
+}

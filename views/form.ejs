@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>
+        <%=title%>
+    </title>
+</head>
+
+<body>
+    <%-include('header.ejs')%>
+        <div class="container">
+            <div class="main">
+                <center>
+                    <h2>Recent News</h2>
+                </center>
+            </div>
+            <div>Memes</div>
+            <form action="/posting" method="post">
+                <input type="text" name="gener" placeholder="title" required>
+                <input type="text" name="content" placeholder="content" required>
+                <input type="text" name="like" placeholder="like" value="0">
+                <input type="text" name="dislike" placeholder="dislike" value="0">
+                <button type="submit">submit</button>
+            </form>
+            <div>Tweets</div>
+            <form action="/postinge" method="post">
+                <input type="text" name="gener" placeholder="title" required>
+                <input type="text" name="content" placeholder="content" required>
+                <input type="text" name="like" placeholder="like" value="0">
+                <input type="text" name="dislike" placeholder="dislike" value="0">
+                <button type="submit">submit</button>
+            </form>
+            <form action="/login" method="post">
+                <input type="text" name="name" placeholder="name">
+                <button type="submit">login</button>
+            </form>
+        </div>
+</body>
+
+</html>
