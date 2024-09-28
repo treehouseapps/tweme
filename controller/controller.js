@@ -14,13 +14,10 @@ const gener = async (req, res) => {
     res.render('gener', { title: 'Gener', session: req.session.name })
 }
 const post = async (req, res) => {
-    if (req.session.name) {
+    
         const result = await meme_model.find().sort({ _id: -1 })
-        res.render('post', { title: 'Post', result, session: req.session.name })
-    }
-    else {
-        res.redirect('/login')
-    }
+        res.render('post', { title: 'Post', result, session: "nobody" })
+    
 }
 const tweet = async (req, res) => {
     if (req.session.name) {
