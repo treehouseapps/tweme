@@ -36,7 +36,7 @@ server.use('/', require('./routes/modify'));
 server.use('/', require('./routes/routes'));
 
 // MongoDB connection
-const DB_STRING = process.env.DBCONNECTION;
+const DB_STRING = "mongodb+srv://Beki:78122775Beki@cluster0.6ypmi.mongodb.net/app"
 const PORT = process.env.PORT || 3000;
 
 connectDatabase(DB_STRING)
