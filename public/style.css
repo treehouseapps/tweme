@@ -355,3 +355,10 @@ footer .copy {
         font-size: medium;
     }
 }
+
+.reaction-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}

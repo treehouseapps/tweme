@@ -3,7 +3,6 @@ const connection = async (url) => {
     let retryCount = 0;
     const maxRetry = 2;
 
-
     // Function to connect to the database with retry
 
     while (retryCount <= maxRetry) {

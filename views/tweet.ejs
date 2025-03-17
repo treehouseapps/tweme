@@ -24,21 +24,29 @@
                             <%=ite.content%>
                         </h4>
                         <div class="box">
-                            <div><a href="/likee/<%=ite._id%>"><i class="bi bi-emoji-laughing"></i></a>
-                                <p>
-                                    <%=ite.like%>
+                            <div><button class="reaction-button" data-id="<%=ite._id%>" reaction="likes">
+                                    <i class="bi bi-emoji-laughing"></i>
+                                </button>
+                                <p class="likes-count">
+                                    <%=ite.likes.length%>
                                 </p>
                             </div>
-                            <div><a href="/dislikee/<%=ite._id%>"><i class="bi bi-emoji-angry"></i></a>
-                                <p>
-                                    <%=ite.dislike%>
+                            <div><button class="reaction-button" data-id="<%=ite._id%>" reaction="dislikes">
+                                    <i class="bi bi-emoji-angry"></i>
+                                </button>
+                                <p class="dislikes-count">
+                                    <%=ite.dislikes.length%>
                                 </p>
                             </div>
-                            <div><i class="bi bi-emoji-neutral"></i>
-                                <p>10</p>
+                            <div><button class="reaction-button" data-id="<%=ite._id%>" reaction="normal">
+                                    <i class="bi bi-emoji-neutral"></i>
+                                </button>
+                                <p class="normal-count">
+                                    <%=ite.normal.length%>
+                                </p>
                             </div>
                         </div>
-                        <%if(session=='tweme' ){%>
+                        <%if(session=='668c06801b92be0ec9efa72c' ){%>
                             <div class="deletebtn"><a href="deletingee/<%=ite._id%>">Delete</a></div>
                             <%}%>
                     </div>
@@ -54,6 +62,32 @@
             </div>
         </div>
         <%-include('footer.ejs')%>
+            <script>
+                document.querySelectorAll(".reaction-button").forEach(button => {
+                    button.addEventListener("click", function (e) {
+
+                        const postId = this.getAttribute("data-id");
+                        const reactionType = this.getAttribute("reaction");
+                        const countElement = this.closest(".box").querySelector(`.${reactionType}-count`);
+
+                        if (reactionType == 'likes') { e.target.style.color = "orange" }
+                        if (reactionType == 'dislikes') { e.target.style.color = "red" }
+                        if (reactionType == 'normal') { e.target.style.color = "blue" }
+
+                        fetch(`/tweet_reaction/${postId}/${reactionType}`, { method: "GET" })
+                            .then(response => response.json()) // Convert response to JSON
+                            .then(data => {
+                                if (data.success) {
+                                    countElement.innerText = data.value.length; // Update only this post's count
+                                } else {
+                                    alert(data.message);
+                                }
+                            })
+                            .catch(error => console.error("Error:", error));
+
+                    })
+                })
+            </script>
 </body>
 
 </html>

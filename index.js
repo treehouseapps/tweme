@@ -1,8 +1,6 @@
 const express = require('express')
 const server = express()
 const path = require('path')
-const ejs = require('ejs')
-const mongoose = require('mongoose')
 const session = require('express-session')
 
 const route = require('./routes/routes')
@@ -24,7 +22,7 @@ server.use("/", route);
 server.use('/', require('./routes/modify'))
 server.use('/', require('./routes/routes'))
 
-const DB_STRING = 'mongodb+srv://Beki:78122775Beki@cluster0.6ypmi.mongodb.net/app'
+const DB_STRING = 'mongodb://localhost:27017/app'
 const PORT = '3000'
 connectDatabase(DB_STRING)
     .then(() => {

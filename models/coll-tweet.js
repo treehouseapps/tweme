@@ -1,4 +1,3 @@
-const express = require('express')
 const mongoose = require('mongoose')
 
 const schema = new mongoose.Schema({
@@ -10,14 +9,9 @@ const schema = new mongoose.Schema({
         type: String,
         required: true
     },
-    like: {
-        type: String,
-        required: true
-    },
-    dislike: {
-        type: String,
-        required: true
-    }
+    likes: [{ type: String, ref: 'User' }], // Stores user IDs who liked
+    dislikes: [{ type: String, ref: 'User' }], // Stores user IDs who disliked
+    normal: [{ type: String, ref: 'User' }] // Stores user IDs who reacted normal
 
 })
 
