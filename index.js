@@ -32,4 +32,4 @@ connectDatabase(DB_STRING)
         console.log(`Faild to connnect the database!`);
     });
 
-module.exports = app;
+module.exports = server;
