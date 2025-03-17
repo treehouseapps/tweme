@@ -1,6 +1,7 @@
 const express = require('express')
 const server = express()
 const path = require('path')
+require('dotenv').config()
 const session = require('express-session')
 
 const route = require('./routes/routes')
@@ -22,8 +23,8 @@ server.use("/", route);
 server.use('/', require('./routes/modify'))
 server.use('/', require('./routes/routes'))
 
-const DB_STRING = 'mongodb+srv://Beki:78122775Beki@cluster0.6ypmi.mongodb.net/app'
-const PORT = '3000'
+const DB_STRING = process.env.DBCONNECTION
+const PORT = process.env.PORT
 connectDatabase(DB_STRING)
     .then(() => {
         server.listen(PORT, console.log(`server started ${PORT}`));
