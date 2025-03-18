@@ -31,7 +31,10 @@ server.use(
 );
 
 // Routes
-server.use('/', route);
+server.get('/',(req,res)=>{
+    res.json({text : "Hello world"})
+    return
+};
 server.use('/', require('./routes/modify'));
 server.use('/', require('./routes/routes'));
 
