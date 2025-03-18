@@ -262,6 +262,8 @@ footer .copy {
 }
 
 @media (max-width: 700px) {
+
+
     .container .bi-emoji-smile {
         font-size: 30px;
     }
@@ -296,7 +298,6 @@ footer .copy {
     /* post */
 
     .container .file {
-        margin: 0% 2%;
         margin-bottom: 5%;
         width: 100%;
     }
