@@ -110,7 +110,7 @@ const tweet_reaction = async (req, res) => {
     }
 }
 const a = async (req, res) => {
-    const data = await users_model.find()
+    const data = await tweet_model.find()
     console.log(data)
     res.end()
 }
