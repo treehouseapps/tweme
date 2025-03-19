@@ -12,8 +12,6 @@ const connection = async (url) => {
             console.log('Connected to the database');
             return;
         } catch (error) {
-
-
             if (retryCount < maxRetry) {
                 retryCount++;
                 console.error(`Error connecting to the database (Attempt ${retryCount}/${maxRetry}):`);
