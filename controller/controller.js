@@ -3,13 +3,12 @@ const news_model = require('../models/coll-news')
 const meme_model = require('../models/coll-meme')
 const tweet_model = require('../models/coll-tweet')
 const { render } = require('ejs')
-const server = require('../routes/routes')
 const home = async (req, res) => {
     const result = await news_model.find()
     res.render('index', { title: 'Home', result, session: req.session._id })
 }
-const gener = async (req, res) => {
-    res.render('gener', { title: 'Gener', session: req.session._id })
+const genre = async (req, res) => {
+    res.render('genre', { title: 'Genre', session: req.session._id })
 }
 const post = async (req, res) => {
     if (req.session._id) {
@@ -20,7 +19,6 @@ const post = async (req, res) => {
         res.redirect('/login')
     }
 }
-
 const formatTime = (timestamp) => {
     const diff = Math.floor((Date.now() - new Date(timestamp)) / 1000);
     if (diff < 60) return `${diff} sec ago`;
@@ -28,8 +26,6 @@ const formatTime = (timestamp) => {
     if (diff < 86400) return `${Math.floor(diff / 3600)} hours ago`;
     return `${Math.floor(diff / 86400)} days ago`;
 };
-
-
 const tweet = async (req, res) => {
     if (req.session._id) {
         const result = await tweet_model.find().sort({ createdAt: -1 }).lean();
@@ -44,7 +40,25 @@ const tweet = async (req, res) => {
         res.redirect('/login');
     }
 };
-
+const search = async (req, res) => {
+    if (req.session._id) {
+        const tag = req.body.search; // Get tag from form
+        const cap_tag = tag.charAt(0).toUpperCase() + tag.slice(1);
+        const result = await tweet_model.find({ gener: cap_tag }).sort({ createdAt: -1 });
+        res.render('tweet', { title: 'Tweet', result, session: req.session._id, formatTime });
+    } else {
+        res.redirect('/login');
+    }
+};
+const genre_filter = async (req, res) => {
+    if (req.session._id) {
+        const tag = req.params.tag; // Get tag from URL
+        const result = await tweet_model.find({ gener: tag }).sort({ createdAt: -1 });
+        res.render('tweet', { title: 'Tweet', result, session: req.session._id, formatTime });
+    } else {
+        res.redirect('/login');
+    }
+};
 const login = async (req, res) => {
     await res.render('login', { title: 'Login', session: req.session._id })
 }
@@ -53,11 +67,11 @@ const login_post = async (req, res) => {
     const result = await users_model.findOne({ name: uname })
     if (result) {
         req.session._id = result._id
-        if (result._id == '668c06801b92be0ec9efa72c') {
+        if (result._name == 'tweme') {
             res.redirect('/form')
         }
         else {
-            res.redirect('/post')
+            res.redirect('/genre')
         }
     }
     else {
@@ -130,15 +144,4 @@ const a = async (req, res) => {
     console.log(data)
     res.end()
 }
-const b = async (req, res) => {
-    try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/photos');
-        const json = await response.json();
-        res.render('b', { result: json }); // Removed the leading '/'
-    } catch (error) {
-        console.log('Error fetching data:', error);
-        res.status(500).send('Internal Server Error'); // Send a response to avoid hanging
-    }
-};
-
-module.exports = { a, b, home, gener, post, tweet, signin, login, login_post, form, uploading_meme, uploading_tweet, post_reaction, tweet_reaction }
+module.exports = { a, search, genre_filter, genre, home, post, tweet, signin, login, login_post, form, uploading_meme, uploading_tweet, post_reaction, tweet_reaction }

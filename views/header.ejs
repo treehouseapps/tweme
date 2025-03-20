@@ -9,13 +9,14 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link" href="/">Home</a>
-                    <a class="nav-link" href="/gener">Gener</a>
+                    <a class="nav-link" href="/genre">Genre</a>
                     <a class="nav-link" href="/post">Post</a>
                     <a class="nav-link" href="/tweet">Tweet</a>
                     <a class="nav-link" href="/login">Login</a>
                 </div>
-                <form class="d-flex justify-content-end" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex justify-content-end" role="search" method="post" action="/search">
+                    <input class="form-control me-2" type="search" name="search" placeholder="Search"
+                        aria-label="Search">
                     <button class=" btn btn-outline-warning" type="submit">Search</button>
                 </form>
                 <div class="session">
