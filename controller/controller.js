@@ -114,5 +114,15 @@ const a = async (req, res) => {
     console.log(data)
     res.end()
 }
+const b = async (req, res) => {
+    try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/photos');
+        const json = await response.json();
+        res.render('b', { result: json }); // Removed the leading '/'
+    } catch (error) {
+        console.log('Error fetching data:', error);
+        res.status(500).send('Internal Server Error'); // Send a response to avoid hanging
+    }
+};
 
-module.exports = { a, home, gener, post, tweet, signin, login, login_post, form, uploading_meme, uploading_tweet, post_reaction, tweet_reaction }
+module.exports = { a, b, home, gener, post, tweet, signin, login, login_post, form, uploading_meme, uploading_tweet, post_reaction, tweet_reaction }

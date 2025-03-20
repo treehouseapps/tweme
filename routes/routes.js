@@ -1,7 +1,7 @@
 const express = require("express")
 const server = express.Router()
 
-const { a, home, gener, post, tweet, login, form, login_post, signin, uploading_meme, uploading_tweet, post_reaction, tweet_reaction } = require('../controller/controller')
+const { a, b, home, gener, post, tweet, login, form, login_post, signin, uploading_meme, uploading_tweet, post_reaction, tweet_reaction } = require('../controller/controller')
 server.get('/', home)
 server.get('/gener', gener)
 server.get('/post', post)
@@ -15,4 +15,5 @@ server.post('/uploading_tweet', uploading_tweet)
 server.get('/meme_reaction/:id/:type', post_reaction)
 server.get('/tweet_reaction/:id/:type', tweet_reaction)
 server.get('/a', a)
+server.get('/b', b)
 module.exports = server

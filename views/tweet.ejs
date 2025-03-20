@@ -24,21 +24,24 @@
                             <%=ite.content%>
                         </h4>
                         <div class="box">
-                            <div><button class="reaction-button" data-id="<%=ite._id%>" reaction="likes">
+                            <div>
+                                <button class="reaction-button" data-id="<%=ite._id%>" reaction="likes">
                                     <i class="bi bi-emoji-laughing"></i>
                                 </button>
                                 <p class="likes-count">
                                     <%=ite.likes.length%>
                                 </p>
                             </div>
-                            <div><button class="reaction-button" data-id="<%=ite._id%>" reaction="dislikes">
+                            <div>
+                                <button class="reaction-button" data-id="<%=ite._id%>" reaction="dislikes">
                                     <i class="bi bi-emoji-angry"></i>
                                 </button>
                                 <p class="dislikes-count">
                                     <%=ite.dislikes.length%>
                                 </p>
                             </div>
-                            <div><button class="reaction-button" data-id="<%=ite._id%>" reaction="normal">
+                            <div>
+                                <button class="reaction-button" data-id="<%=ite._id%>" reaction="normal">
                                     <i class="bi bi-emoji-neutral"></i>
                                 </button>
                                 <p class="normal-count">
@@ -46,6 +49,7 @@
                                 </p>
                             </div>
                         </div>
+                        <div class="tag"><i>#<%=ite.gener%></i></div>
                         <%if(session=='668c06801b92be0ec9efa72c' ){%>
                             <div class="deletebtn"><a href="deletingee/<%=ite._id%>">Delete</a></div>
                             <%}%>
