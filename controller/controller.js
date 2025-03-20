@@ -20,15 +20,31 @@ const post = async (req, res) => {
         res.redirect('/login')
     }
 }
+
+const formatTime = (timestamp) => {
+    const diff = Math.floor((Date.now() - new Date(timestamp)) / 1000);
+    if (diff < 60) return `${diff} sec ago`;
+    if (diff < 3600) return `${Math.floor(diff / 60)} min ago`;
+    if (diff < 86400) return `${Math.floor(diff / 3600)} hours ago`;
+    return `${Math.floor(diff / 86400)} days ago`;
+};
+
+
 const tweet = async (req, res) => {
     if (req.session._id) {
-        const result = await tweet_model.find().sort({ _id: -1 })
-        res.render('tweet', { title: 'Tweet', result, session: req.session._id })
+        const result = await tweet_model.find().sort({ createdAt: -1 }).lean();
+
+        res.render('tweet', {
+            title: 'Tweet',
+            result,
+            session: req.session._id,
+            formatTime // ✅ Pass function to EJS
+        });
+    } else {
+        res.redirect('/login');
     }
-    else {
-        res.redirect('/login')
-    }
-}
+};
+
 const login = async (req, res) => {
     await res.render('login', { title: 'Login', session: req.session._id })
 }

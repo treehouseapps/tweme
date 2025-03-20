@@ -49,8 +49,15 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="tag"><i>#<%=ite.gener%></i></div>
-                        <%if(session=='668c06801b92be0ec9efa72c' ){%>
+                        <div class="box-bottom">
+                            <p class="tag"><i>#<%=ite.gener%></i></p>
+                            <p style="font-size: small; color: gray;">
+                                <i>
+                                    <%= ite.createdAt ? formatTime(ite.createdAt) : "From the future" %>
+                                </i>
+                            </p>
+                        </div>
+                        <%if(session=='67d98e33989786fc010f9756' ){%>
                             <div class="deletebtn"><a href="deletingee/<%=ite._id%>">Delete</a></div>
                             <%}%>
                     </div>
